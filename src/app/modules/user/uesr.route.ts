@@ -33,7 +33,7 @@ router.get(
  */
 router.get(
   "/me",
-  checkAuth(Role.USER, Role.RECEIVER, Role.AGENT, Role.ADMIN, Role.SUPER_ADMIN),
+  checkAuth(Role.SENDER, Role.RECEIVER, Role.AGENT, Role.ADMIN, Role.SUPER_ADMIN),
   UserControllers.getCurrentUser
 );
 

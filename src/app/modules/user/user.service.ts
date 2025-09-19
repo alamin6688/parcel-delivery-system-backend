@@ -27,8 +27,8 @@ const createUser = async (payload: Partial<IUser>) => {
     providerId: email as string,
   };
 
-  // Default role = USER (Sender)
-  const role = payload.role ?? Role.USER;
+  // Default role = USER (Receiver)
+  const role = payload.role ?? Role.RECEIVER;
 
   const user = await User.create({
     email,
@@ -92,7 +92,7 @@ const updateUser = async (
   }
 
   if (payload.role) {
-    if (decodedToken.role === Role.USER || decodedToken.role === Role.AGENT) {
+    if (decodedToken.role === Role.RECEIVER || decodedToken.role === Role.AGENT) {
       throw new AppError(httpStatus.FORBIDDEN, "You are not authorized");
     }
 
