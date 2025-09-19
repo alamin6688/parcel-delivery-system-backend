@@ -44,7 +44,16 @@ export const checkAuth =
       if (!authRoles.includes(verifiedToken.role)) {
         throw new AppError(403, "You are not permitted to view this route!!!");
       }
-      req.user = verifiedToken;
+      // req.user = verifiedToken as JwtPayload & {
+      //   userId: string;
+      //   email: string;
+      //   role: string;
+      // };
+      req.user = {
+        userId: verifiedToken.userId,
+        role: verifiedToken.role,
+      };
+
       next();
     } catch (error) {
       console.log("jwt error", error);
