@@ -145,6 +145,14 @@ export const cancelParcel = async (parcelId: string, senderId: string) => {
 
 // Confirm delivery (Receiver only)
 export const confirmDelivery = async (parcelId: string, receiverId: string) => {
+  if (!parcelId) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Parcel ID is required");
+  }
+
+  if (!mongoose.Types.ObjectId.isValid(parcelId)) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Invalid Parcel ID");
+  }
+
   const parcel = await Parcel.findById(parcelId);
   if (!parcel) throw new AppError(httpStatus.NOT_FOUND, "Parcel not found");
 

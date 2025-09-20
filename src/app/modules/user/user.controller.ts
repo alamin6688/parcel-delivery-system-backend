@@ -112,9 +112,37 @@ const getCurrentUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// Block a user
+const blockUser = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await UserServices.blockUser(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User blocked successfully",
+    data: result,
+  });
+});
+
+// Unblock a user
+const unblockUser = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await UserServices.unblockUser(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User unblocked successfully",
+    data: result,
+  });
+});
+
 export const UserControllers = {
   createUser,
   updateUser,
   getAllUsers,
   getCurrentUser,
+  blockUser,
+  unblockUser,
 };
