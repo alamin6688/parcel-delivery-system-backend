@@ -1,7 +1,7 @@
 <h1>📦 Parcel Delivery System - Backend </h1>
 
 <p>A secure, modular and role-based backend API for managing **parcel delivery operations** (inspired by Pathao Courier / Sundarban).  
-Built with Express.js + TypeScript + MongoDB (Mongoose), featuring JWT authentication, Zod validation and full role-based control.</p>
+It enables senders, receivers and admins to seamlessly create, track, and manage parcels with proper access control.</p>
 
 ---
 
@@ -18,6 +18,19 @@ Built with Express.js + TypeScript + MongoDB (Mongoose), featuring JWT authentic
 <li>🔁 <b>Transactional Logic</b> – Controlled flow for cancel/delivery confirmation</li>
 <li>🛠️ <b>Future Scope</b> – Delivery Agent module, Fee calculation, Coupons/Discounts</li>
 </ul>
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Tools |
+|---------|-------|
+| ⚙️ Runtime | Node.js |
+| 🔧 Framework | Express.js |
+| 🧠 Language | TypeScript + JavaScript |
+| 🛢️ Database | MongoDB + Mongoose |
+| 🛡️ Security | jwt, bcrypt |
+| 📦 Others | cors, cookie-parser, zod, dotenv, passport-google-oauth20, passport-local, express-session, eslint |
 
 ---
 
