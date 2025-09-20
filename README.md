@@ -110,7 +110,7 @@ src/
 <tr>
 <td>1</td>
 <td>POST</td>
-<td><code>/parcels</code></td>
+<td><code>/parcel</code></td>
 <td>SENDER</td>
 <td>Create a new parcel</td>
 <td><pre>{
@@ -126,7 +126,7 @@ src/
 <tr>
 <td>2</td>
 <td>PATCH</td>
-<td><code>/parcels/cancel/:id</code></td>
+<td><code>/parcel/cancel/:id</code></td>
 <td>SENDER</td>
 <td>Cancel a parcel if not dispatched</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
@@ -135,16 +135,16 @@ src/
 <tr>
 <td>3</td>
 <td>GET</td>
-<td><code>/parcels/me</code></td>
+<td><code>/parcel/me</code></td>
 <td>SENDER</td>
-<td>List sender’s own parcels with status logs</td>
+<td>List sender’s own parcel with status logs</td>
 <td><i>None</i></td>
 </tr>
 
 <tr>
 <td>4</td>
 <td>GET</td>
-<td><code>/parcels/incoming</code></td>
+<td><code>/parcel/incoming</code></td>
 <td>RECEIVER</td>
 <td>List incoming parcels for receiver</td>
 <td><i>None</i></td>
@@ -153,7 +153,7 @@ src/
 <tr>
 <td>5</td>
 <td>PATCH</td>
-<td><code>/parcels/confirm/:id</code></td>
+<td><code>/parcel/confirm/:id</code></td>
 <td>RECEIVER</td>
 <td>Confirm delivery of a parcel</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
@@ -162,7 +162,7 @@ src/
 <tr>
 <td>6</td>
 <td>GET</td>
-<td><code>/parcels/:id/status-log</code></td>
+<td><code>/parcel/:id/status-log</code></td>
 <td>ALL</td>
 <td>View parcel status log</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
@@ -171,16 +171,16 @@ src/
 <tr>
 <td>7</td>
 <td>GET</td>
-<td><code>/parcels</code></td>
+<td><code>/parcel</code></td>
 <td>ADMIN</td>
-<td>List all parcels in the system</td>
+<td>List all parcel in the system</td>
 <td><i>None</i></td>
 </tr>
 
 <tr>
 <td>8</td>
 <td>PATCH</td>
-<td><code>/parcels/block/:id</code></td>
+<td><code>/parcel/block/:id</code></td>
 <td>ADMIN</td>
 <td>Block a parcel</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
@@ -189,7 +189,7 @@ src/
 <tr>
 <td>9</td>
 <td>PATCH</td>
-<td><code>/parcels/unblock/:id</code></td>
+<td><code>/parcel/unblock/:id</code></td>
 <td>ADMIN</td>
 <td>Unblock a parcel</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
@@ -198,7 +198,7 @@ src/
 <tr>
 <td>10</td>
 <td>PATCH</td>
-<td><code>/parcels/status/:id</code></td>
+<td><code>/parcel/status/:id</code></td>
 <td>ADMIN</td>
 <td>Update parcel status</td>
 <td><pre>{ "status": "DISPATCHED" }</pre></td>
@@ -207,7 +207,7 @@ src/
 <tr>
 <td>11</td>
 <td>DELETE</td>
-<td><code>/parcels/delete/:id</code></td>
+<td><code>/parcel/delete/:id</code></td>
 <td>ADMIN</td>
 <td>Delete a parcel</td>
 <td><i>None</i> (URL param: <code>:id</code> → parcel <code>_id</code>)</td>
