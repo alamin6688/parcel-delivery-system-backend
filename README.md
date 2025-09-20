@@ -1,7 +1,7 @@
 <h1>📦 Parcel Delivery System - Backend </h1>
 
 <p>A secure, modular and role-based backend API for managing **parcel delivery operations** (inspired by Pathao Courier / Sundarban).  
-It enables senders, receivers and admins to seamlessly create, track, and manage parcels with proper access control.</p>
+It enables senders, receivers and admins to seamlessly create, track and manage parcels with proper access control.</p>
 
 ---
 
