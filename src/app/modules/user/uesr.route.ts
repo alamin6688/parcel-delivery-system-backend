@@ -33,8 +33,28 @@ router.get(
  */
 router.get(
   "/me",
-  checkAuth(Role.SENDER, Role.RECEIVER, Role.AGENT, Role.ADMIN, Role.SUPER_ADMIN),
+  checkAuth(
+    Role.SENDER,
+    Role.RECEIVER,
+    Role.AGENT,
+    Role.ADMIN,
+    Role.SUPER_ADMIN
+  ),
   UserControllers.getCurrentUser
+);
+
+// ADMIN Block User
+router.patch(
+  "/block/:id",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  UserControllers.blockUser
+);
+
+// ADMIN Unblock User
+router.patch(
+  "/unblock/:id",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  UserControllers.unblockUser
 );
 
 router.patch(

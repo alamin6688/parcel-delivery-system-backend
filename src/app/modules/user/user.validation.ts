@@ -71,6 +71,7 @@ export const updateUserZodSchema = z.object({
   isVerified: z
     .boolean({ error: "isVerified must be true or false" })
     .optional(),
+  isBlocked: z.boolean({ error: "isBlocked must be true or false" }).optional(),
   address: z
     .string({ error: "Address must be string" })
     .max(200, { message: "Address cannot exceed 200 characters." })

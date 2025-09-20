@@ -92,7 +92,10 @@ const updateUser = async (
   }
 
   if (payload.role) {
-    if (decodedToken.role === Role.RECEIVER || decodedToken.role === Role.AGENT) {
+    if (
+      decodedToken.role === Role.RECEIVER ||
+      decodedToken.role === Role.AGENT
+    ) {
       throw new AppError(httpStatus.FORBIDDEN, "You are not authorized");
     }
 
@@ -135,8 +138,36 @@ const getAllUsers = async () => {
   };
 };
 
+// ✅ Block a user
+export const blockUser = async (id: string) => {
+  const user = await User.findById(id);
+  if (!user) {
+    throw new AppError(httpStatus.NOT_FOUND, "User not found");
+  }
+
+  user.isBlocked = true;
+  await user.save();
+
+  return user;
+};
+
+// ✅ Unblock a user
+export const unblockUser = async (id: string) => {
+  const user = await User.findById(id);
+  if (!user) {
+    throw new AppError(httpStatus.NOT_FOUND, "User not found");
+  }
+
+  user.isBlocked = false;
+  await user.save();
+
+  return user;
+};
+
 export const UserServices = {
   createUser,
   getAllUsers,
   updateUser,
+  blockUser,
+  unblockUser,
 };

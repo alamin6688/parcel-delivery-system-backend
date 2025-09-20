@@ -43,10 +43,7 @@ export const createNewAccessTokenWithRefreshToken = async (
   if (!isUserExist) {
     throw new AppError(httpStatus.BAD_REQUEST, "User does not exist");
   }
-  if (
-    isUserExist.isActive === IsActive.BLOCKED ||
-    isUserExist.isActive === IsActive.INACTIVE
-  ) {
+  if (isUserExist.isBlocked || isUserExist.isActive === IsActive.INACTIVE) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
       `User is ${isUserExist.isActive}`

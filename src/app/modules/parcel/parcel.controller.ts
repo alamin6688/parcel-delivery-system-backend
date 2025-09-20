@@ -146,8 +146,14 @@ const confirmDeliveryController = catchAsync(
     if (!req.user || !("userId" in req.user))
       throw new Error("User not authenticated");
 
-    const parcelId = req.params.id;
-    const parcel = await confirmDelivery(parcelId, req.user.userId as string);
+    // Accept parcel id from URL param (preferred) or request body (compatible)
+    const parcelId =
+      req.params.id || (req.body && (req.body.id || req.body.parcelId));
+
+    const parcel = await confirmDelivery(
+      parcelId as string,
+      req.user.userId as string
+    );
 
     sendResponse(res, {
       success: true,
